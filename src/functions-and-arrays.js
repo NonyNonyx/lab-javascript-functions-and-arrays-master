@@ -1,18 +1,75 @@
 // Iteration #1: Find the maximum
-
+function maxOfTwoNumbers(number1, number2)
+{
+  if(number1>number2) return number1;
+  else return number2;
+}
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
-
+function findLongestWord(wordarray)
+{
+  let bigindex=0;
+  if(wordarray.length==0) return null;
+  //if(wordarray.length==1) return wordarray[0];
+  for (let index = 0; index < wordarray.length; index++) if(wordarray[index].length>wordarray[bigindex].length) bigindex=index;
+  //if(wordarray[wordarray.length-1].length > wordarray[bigindex].length) return wordarray[wordarray.length-1];
+  return wordarray[bigindex];
+}
 // Iteration #3: Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
+
+function sumNumbers(numbers)
+{
+  let total=0;
+  //if(numbers.length==0) return total;
+  for (let index = 0; index < numbers.length; index++) total+=numbers[index];
+  return total;
+}
+
+function sum(mixedArr)
+{
+  let suma=0;
+  //if(mixedArr.length==0) return null;
+  for (let index = 0; index < mixedArr.length; index++) 
+  {
+    //console.log(typeof mixedArr[index]);
+    if(typeof mixedArr[index]==="number") suma+=mixedArr[index];
+    else if(typeof mixedArr[index]==="string") suma+=mixedArr[index].length;
+    else if(typeof mixedArr[index]==="boolean")
+    {
+      if(mixedArr[index]==true) suma++;
+    }
+    else throw Error("Unsupported data type sir or ma'am");
+    
+  }
+  
+  return suma;
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
+function averageNumbers(numbersAvg)
+{
+  let average=0;
+  if(numbersAvg.length==0) return null;
+  for (let index = 0; index < numbersAvg.length; index++) average+=numbersAvg[index];
+  average=average/numbersAvg.length;
+  return average;
+}
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
+
+function averageWordLength(wordsArr)
+{
+  let avlength=0;
+  if(wordsArr.length==0) return null;
+  for (let index = 0; index < wordsArr.length; index++) avlength+=wordsArr[index].length;
+  avlength=avlength/wordsArr.length;
+  return avlength;
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
