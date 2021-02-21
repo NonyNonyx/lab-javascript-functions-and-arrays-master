@@ -122,6 +122,13 @@ function uniquifyArray(arr)
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
+function doesWordExist(arr, word)
+{
+  if(arr.length==0) return null;
+  if(arr.indexOf(word)<0) return false;
+  else return true;
+}
+
 // Iteration #7: Count repetition
 const wordsCount = [
   'machine',
@@ -136,6 +143,16 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word)
+{
+  let count=0;
+  for(let index=0; index< arr.length; index++)
+  {
+    if(arr[index]==word) count++;
+  }
+  return count;
+}
 
 // Iteration #8: Bonus
 
@@ -161,3 +178,25 @@ const matrix = [
   [20, 73, 35, 29, 78, 31, 90, 1, 74, 31, 49, 71, 48, 86, 81, 16, 23, 57, 5, 54],
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
+
+function greatestProduct(matrix)
+{
+  let actual=0, greater=0;
+  for (let v = 0; v < matrix.length; v++) 
+  {
+    for (let h = 0; h < matrix[v].length; h++) 
+    {
+      if(h<matrix[v].length-3)
+      {
+        actual=matrix[v][h]*matrix[v][h+1]*matrix[v][h+2]*matrix[v][h+3];
+      }
+      if(actual>greater) greater=actual;
+      if(v<matrix.length-3)
+      {
+        actual=matrix[v][h]*matrix[v+1][h]*matrix[v+2][h]*matrix[v+3][h];
+      }
+      if(actual>greater) greater=actual;
+    }
+  }
+  return greater;
+}
