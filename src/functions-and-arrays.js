@@ -10,9 +10,7 @@ function findLongestWord(wordarray)
 {
   let bigindex=0;
   if(wordarray.length==0) return null;
-  //if(wordarray.length==1) return wordarray[0];
   for (let index = 0; index < wordarray.length; index++) if(wordarray[index].length>wordarray[bigindex].length) bigindex=index;
-  //if(wordarray[wordarray.length-1].length > wordarray[bigindex].length) return wordarray[wordarray.length-1];
   return wordarray[bigindex];
 }
 // Iteration #3: Calculate the sum
@@ -22,7 +20,6 @@ const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 function sumNumbers(numbers)
 {
   let total=0;
-  //if(numbers.length==0) return total;
   for (let index = 0; index < numbers.length; index++) total+=numbers[index];
   return total;
 }
@@ -34,9 +31,9 @@ function sum(mixedArr)
   for (let index = 0; index < mixedArr.length; index++) 
   {
     //console.log(typeof mixedArr[index]);
-    if(typeof mixedArr[index]==="number") suma+=mixedArr[index];
-    else if(typeof mixedArr[index]==="string") suma+=mixedArr[index].length;
-    else if(typeof mixedArr[index]==="boolean")
+    if(typeof mixedArr[index]=="number") suma+=mixedArr[index];
+    else if(typeof mixedArr[index]=="string") suma+=mixedArr[index].length;
+    else if(typeof mixedArr[index]=="boolean")
     {
       if(mixedArr[index]==true) suma++;
     }
@@ -71,6 +68,23 @@ function averageWordLength(wordsArr)
   return avlength;
 }
 
+function avg(arr)
+{
+  let length=0;
+  if(arr.length==0) return null;
+  for (let index = 0; index < arr.length; index++) 
+  {
+    if(typeof arr[index]=="number") length+=arr[index];
+    else if(typeof arr[index]=="string") length+=arr[index].length;
+    else if(typeof arr[index]=="boolean")
+    {
+      if(arr[index]==true) length++;
+    }
+  }
+    length=length/arr.length;
+    return Number(length.toFixed(2));
+}
+
 // Iteration #5: Unique arrays
 const wordsUnique = [
   'crab',
@@ -85,6 +99,25 @@ const wordsUnique = [
   'simple',
   'bring'
 ];
+
+function uniquifyArray(arr)
+{
+  let length=0;
+  let arr2=[];
+  let arr2index=0;
+  if(arr.length==0) return null;
+  for(let index=0; index< arr.length; index++)
+  {
+      if(arr2.indexOf(arr[index])<0)
+      {
+          arr2[arr2index]=arr[index];
+          arr2index++;
+      }
+  }
+  //console.log(arr.findIndex("Ironhack"));
+  return arr2;
+  
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
